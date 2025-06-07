@@ -1,0 +1,147 @@
+---
+export interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  primaryCta?: {
+    text: string;
+    href: string;
+  };
+  secondaryCta?: {
+    text: string;
+    href: string;
+  };
+}
+
+const { title, subtitle, description, primaryCta, secondaryCta } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-white dark:bg-gray-900">
+  <!-- Professional geometric background -->
+  <div class="absolute inset-0">
+    <!-- Subtle grid pattern -->
+    <div class="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
+    
+    <!-- Minimal geometric shapes -->
+    <div class="absolute top-20 left-10 w-32 h-32 border border-blue-200 dark:border-blue-800 rounded-lg rotate-12 animate-float opacity-20"></div>
+    <div class="absolute top-40 right-20 w-24 h-24 border border-blue-300 dark:border-blue-700 rounded-full animate-float-reverse opacity-30"></div>
+    <div class="absolute bottom-20 left-20 w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded animate-pulse opacity-40"></div>
+    
+    <!-- Subtle gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-transparent via-blue-50/50 to-transparent dark:via-blue-900/10"></div>
+  </div>
+  
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+    <div class="text-center">
+      <!-- Status badge with professional styling -->
+      <div class="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400 mb-8 animate-fade-in-up">
+        <div class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+        {title}
+      </div>
+
+      <!-- Main heading with stagger animation -->
+      <h1 class="text-4xl sm:text-6xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-in-up animation-delay-200">
+        <span class="block">{subtitle}</span>
+      </h1>
+
+      <!-- Description with animation -->
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed animate-fade-in-up animation-delay-400">
+        {description}
+      </p>
+
+      <!-- CTA buttons with staggered animation -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-600">
+        {primaryCta && (
+          <a 
+            href={primaryCta.href} 
+            class="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            {primaryCta.text}
+          </a>
+        )}
+        
+        {secondaryCta && (
+          <a 
+            href={secondaryCta.href} 
+            class="inline-flex items-center px-8 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-lg text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+            </svg>
+            {secondaryCta.text}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Professional fade-in-up animation */
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Subtle floating animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(5deg);
+    }
+  }
+  
+  @keyframes float-reverse {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(10px) rotate(-3deg);
+    }
+  }
+  
+  /* Grid pattern background */
+  .bg-grid-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.3) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-reverse {
+    animation: float-reverse 8s ease-in-out infinite;
+  }
+  
+  /* Animation delays */
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+    opacity: 0;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+    opacity: 0;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+    opacity: 0;
+  }
+</style> 

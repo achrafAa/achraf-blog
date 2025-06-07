@@ -1,0 +1,134 @@
+---
+// Search component using Pagefind
+---
+
+<div id="search-container" class="max-w-2xl mx-auto mb-8">
+  <div class="relative">
+    <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+      <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+    </div>
+    <div id="search" class="w-full"></div>
+  </div>
+</div>
+
+<script is:inline>
+  // Load Pagefind script dynamically
+  window.addEventListener('DOMContentLoaded', async () => {
+    try {
+      // Create and load the Pagefind script
+      const script = document.createElement('script');
+      script.src = '/pagefind/pagefind.js';
+      script.onload = async () => {
+        await window.pagefind.options({
+          'baseUrl': '/',
+          'excerptLength': 200,
+          'highlightParam': 'highlight'
+        });
+        
+        // Initialize the search UI
+        new window.pagefind.PagefindUI({ 
+          element: "#search",
+          showSubResults: true,
+          highlightParam: "highlight",
+          excerptLength: 200,
+          resetStyles: true,
+          showImages: false,
+          translations: {
+            placeholder: "Search blog posts...",
+            clear_search: "Clear search",
+            load_more: "Load more results",
+            search_label: "Search this site",
+            filters_label: "Filters",
+            zero_results: "No results found for [SEARCH_TERM]",
+            many_results: "[COUNT] results found for [SEARCH_TERM]",
+            one_result: "[COUNT] result found for [SEARCH_TERM]",
+            alt_search: "No results found for [SEARCH_TERM]. Showing results for [DIFFERENT_TERM] instead",
+            search_suggestion: "Try searching for [SUGGESTED_TERM]",
+            searching: "Searching..."
+          }
+        });
+      };
+      
+      script.onerror = () => {
+        console.log('Pagefind not available yet, search will be available after build');
+        const searchContainer = document.getElementById('search-container');
+        if (searchContainer) {
+          searchContainer.style.display = 'none';
+        }
+      };
+      
+      document.head.appendChild(script);
+    } catch (error) {
+      console.log('Failed to load Pagefind:', error);
+      const searchContainer = document.getElementById('search-container');
+      if (searchContainer) {
+        searchContainer.style.display = 'none';
+      }
+    }
+  });
+</script>
+
+<style>
+  /* Custom styles for Pagefind search */
+  :global(.pagefind-ui) {
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: theme('colors.blue.600');
+    --pagefind-ui-text: theme('colors.gray.900');
+    --pagefind-ui-background: theme('colors.white');
+    --pagefind-ui-border: theme('colors.gray.200');
+    --pagefind-ui-tag: theme('colors.gray.100');
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0.5rem;
+    --pagefind-ui-font: inherit;
+  }
+
+  :global(.dark .pagefind-ui) {
+    --pagefind-ui-primary: theme('colors.blue.400');
+    --pagefind-ui-text: theme('colors.white');
+    --pagefind-ui-background: theme('colors.gray.800');
+    --pagefind-ui-border: theme('colors.gray.600');
+    --pagefind-ui-tag: theme('colors.gray.700');
+  }
+
+  :global(.pagefind-ui__search-input) {
+    @apply w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors;
+  }
+
+  :global(.pagefind-ui__results) {
+    @apply mt-4;
+  }
+
+  :global(.pagefind-ui__result) {
+    @apply mb-6 p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 hover:shadow-md transition-shadow;
+  }
+
+  :global(.pagefind-ui__result-title a) {
+    @apply text-lg font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 no-underline;
+  }
+
+  :global(.pagefind-ui__result-excerpt) {
+    @apply text-gray-600 dark:text-gray-300 mt-2 leading-relaxed;
+  }
+
+  :global(.pagefind-ui__result-tags) {
+    @apply mt-3 flex flex-wrap gap-2;
+  }
+
+  :global(.pagefind-ui__result-tag) {
+    @apply px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full;
+  }
+
+  :global(.pagefind-ui__message) {
+    @apply text-gray-600 dark:text-gray-300 text-center py-8;
+  }
+
+  :global(.pagefind-ui__button) {
+    @apply mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors;
+  }
+
+  :global(.dark .pagefind-ui__button) {
+    @apply bg-blue-500 hover:bg-blue-600;
+  }
+</style> 

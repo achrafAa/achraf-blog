@@ -1,0 +1,13 @@
+# Pagefind configuration
+site: dist
+glob: "**/*.{html}"
+output_path: dist/pagefind
+verbose: true
+exclude_selectors:
+  - "nav"
+  - "footer"
+  - "[data-pagefind-ignore]"
+  - ".pagefind-ui"
+root_selector: "html"
+output_subdir: pagefind
+serve: false 

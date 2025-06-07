@@ -1,0 +1,69 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "PHP Dev Box",
+      "description": "Containerized PHP development environment for core development and extension building.",
+      "longDescription": "A complete PHP development environment with Docker, featuring Laravel, Symfony, and modern PHP tools. Perfect for local development and testing.",
+      "image": null,
+      "tags": ["PHP", "Docker", "C"],
+      "fullTags": ["PHP", "Docker", "Laravel", "Development Environment"],
+      "github": "https://github.com/achrafAa/php-dev-box",
+      "demo": null,
+      "featured": true,
+      "status": "ready"
+    },
+    {
+      "id": 2,
+      "title": "CSVHelper",
+      "description": "High-performance PHP CSV processing library with advanced parsing capabilities.",
+      "longDescription": "High-performance PHP library for handling large CSV files with memory efficiency. Includes data validation, transformation, and export capabilities.",
+      "image": "/images/projects/phpcsv.jpg",
+      "tags": ["PHP", "Composer"],
+      "fullTags": ["PHP", "CSV", "Performance", "Library"],
+      "github": "https://github.com/PHP-CSV/CSVHelper",
+      "demo": null,
+      "featured": true,
+      "status": "beta"
+    },
+    {
+      "id": 3,
+      "title": "Cventure",
+      "description": "Interactive C programming learning platform with hands-on exercises.",
+      "longDescription": "CV management platform built with modern PHP and clean architecture principles. Features template management and PDF generation.",
+      "image": "/images/projects/c.jpg",
+      "tags": ["C", "Web"],
+      "fullTags": ["PHP", "Web Application", "PDF", "Clean Architecture"],
+      "github": "https://github.com/achrafAa/cventure",
+      "demo": null,
+      "featured": true,
+      "status": "ready"
+    },
+    {
+      "id": 4,
+      "title": "MacDotfile",
+      "description": "Comprehensive macOS dotfiles configuration with automated setup scripts.",
+      "longDescription": "Comprehensive macOS dotfiles configuration with automated setup scripts. Includes development tools, shell configuration, and productivity apps.",
+      "image": "/images/projects/mac.jpg",
+      "tags": ["macOS", "Dotfiles"],
+      "fullTags": ["macOS", "Dotfiles", "Shell", "Automation"],
+      "github": "https://github.com/achrafAa/macdotfile",
+      "demo": null,
+      "featured": false,
+      "status": "ready"
+    },
+    {
+      "id": 5,
+      "title": "LaTeX CV Docker Image",
+      "description": "Docker image for generating professional CVs using LaTeX with custom templates.",
+      "longDescription": "Docker image for generating professional CVs using LaTeX. Includes custom templates and automated compilation pipeline.",
+      "image": "/images/projects/LaTeX.jpg",
+      "tags": ["LaTeX", "Docker"],
+      "fullTags": ["LaTeX", "Docker", "CV", "Templates"],
+      "github": "https://github.com/achrafAa/latex-cv-docker",
+      "demo": null,
+      "featured": false,
+      "status": "ready"
+    }
+  ]
+} 
