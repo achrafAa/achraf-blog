@@ -115,13 +115,17 @@ Simple enough. But to make it *feel* native, I also:
 
 ---
 
-## The Shocking Truth: Performance Was... Meh?
+## The Shocking Truth: Performance Was... Always Worse?
 
-Here's the part that surprised me.
+Here's the part that completely humbled me.
 
 I benchmarked my shiny new extension against PHP's built-in `json_encode()`, expecting a blowout win for Zig.
 
-But no. For small payloads, my extension was slower. 😬
+But no. My extension was *always* slower. 😬
+
+Small payloads? Slower.  
+Big JSON documents (10MB+)? Still slower.  
+Batch processing 1,000+ calls? Yep, slower too.
 
 Why? Because every call had to cross three boundaries:
 
@@ -129,17 +133,18 @@ Why? Because every call had to cross three boundaries:
 2. C to Zig (FFI overhead)
 3. Zig back to C, then to PHP
 
-The overhead was bigger than I expected.
+The overhead was so significant that even Zig's superior raw performance couldn't overcome it.
 
 ---
 
-## When Zig *Did* Win
+## The Hard Reality Check
 
-✅ **Big JSON documents** (10MB+): Zig was 2–3x faster  
-✅ **Batch processing** (1,000+ small payloads): Zig's allocator efficiency showed  
-❌ **Tiny, frequent calls**: PHP's native `json_encode()` still ruled  
+❌ **Small payloads**: Slower (as expected)  
+❌ **Big JSON documents** (10MB+): Still slower due to FFI overhead  
+❌ **Batch processing** (1,000+ small payloads): Overhead multiplied the pain  
+❌ **Everything else**: You guessed it, slower  
 
-So the lesson? For micro-ops, the boundary cost matters more than raw parser speed.
+So the lesson? Sometimes the theoretical performance gains of a better language get completely eaten by architectural overhead.
 
 ---
 
