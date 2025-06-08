@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
 import projectsData from '../data/projects.json';
 
@@ -7,19 +8,19 @@ const allProjects = projectsData.projects;
 ---
 
 <Layout title="Projects | Achraf AAMRI - Senior Software Engineer">
-  <!-- Hero Section -->
-  <section class="py-20 bg-gradient-to-br from-white via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-          Open Source Projects
-        </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          A collection of tools, libraries, and applications I've built to solve real-world problems and contribute to the developer community.
-        </p>
-      </div>
-    </div>
-  </section>
+  <Hero
+    title="Open Source Contributor"
+    subtitle="My Projects"
+    description="A collection of tools, libraries, and applications I've built to solve real-world problems and contribute to the developer community. From PHP packages to low-level systems programming."
+    primaryCta={{
+      text: "View GitHub",
+      href: "https://github.com/achrafAa"
+    }}
+    secondaryCta={{
+      text: "Get In Touch",
+      href: "/contact"
+    }}
+  />
 
   <!-- Projects Grid -->
   <section class="py-20 bg-white dark:bg-gray-900">

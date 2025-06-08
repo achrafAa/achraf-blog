@@ -21,12 +21,7 @@ const allTags = [...new Set(publishedPosts.flatMap((post: CollectionEntry<'blog'
     description="Deep dives into PHP internals, systems programming, performance optimization, and modern development practices. From C extensions to Zig experiments."
   />
 
-  <!-- Search Section -->
-  <section class="py-12 bg-white dark:bg-gray-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <Search />
-    </div>
-  </section>
+
 
   <!-- Blog Posts Grid -->
   <section class="py-20 bg-gray-50 dark:bg-gray-800/50">
@@ -162,4 +157,7 @@ const allTags = [...new Set(publishedPosts.flatMap((post: CollectionEntry<'blog'
       </div>
     </div>
   </section>
+  
+  <!-- Floating Search Button -->
+  <Search />
 </Layout> 
