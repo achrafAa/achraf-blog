@@ -17,57 +17,72 @@
   // Load Pagefind script dynamically
   window.addEventListener('DOMContentLoaded', async () => {
     try {
+      console.log('Attempting to load Pagefind...');
+      
+      // Check if pagefind.js exists before loading
+      const response = await fetch('/pagefind/pagefind.js');
+      if (!response.ok) {
+        throw new Error(`Pagefind script not found: ${response.status}`);
+      }
+      
       // Create and load the Pagefind script
       const script = document.createElement('script');
       script.src = '/pagefind/pagefind.js';
       script.onload = async () => {
-        await window.pagefind.options({
-          'baseUrl': '/',
-          'excerptLength': 200,
-          'highlightParam': 'highlight'
-        });
-        
-        // Initialize the search UI
-        new window.pagefind.PagefindUI({ 
-          element: "#search",
-          showSubResults: true,
-          highlightParam: "highlight",
-          excerptLength: 200,
-          resetStyles: true,
-          showImages: false,
-          translations: {
-            placeholder: "Search blog posts...",
-            clear_search: "Clear search",
-            load_more: "Load more results",
-            search_label: "Search this site",
-            filters_label: "Filters",
-            zero_results: "No results found for [SEARCH_TERM]",
-            many_results: "[COUNT] results found for [SEARCH_TERM]",
-            one_result: "[COUNT] result found for [SEARCH_TERM]",
-            alt_search: "No results found for [SEARCH_TERM]. Showing results for [DIFFERENT_TERM] instead",
-            search_suggestion: "Try searching for [SUGGESTED_TERM]",
-            searching: "Searching..."
-          }
-        });
+        console.log('Pagefind script loaded successfully');
+        try {
+          await window.pagefind.options({
+            'baseUrl': '/',
+            'excerptLength': 200,
+            'highlightParam': 'highlight'
+          });
+          
+          // Initialize the search UI
+          new window.pagefind.PagefindUI({ 
+            element: "#search",
+            showSubResults: true,
+            highlightParam: "highlight",
+            excerptLength: 200,
+            resetStyles: true,
+            showImages: false,
+            translations: {
+              placeholder: "Search blog posts...",
+              clear_search: "Clear search",
+              load_more: "Load more results",
+              search_label: "Search this site",
+              filters_label: "Filters",
+              zero_results: "No results found for [SEARCH_TERM]",
+              many_results: "[COUNT] results found for [SEARCH_TERM]",
+              one_result: "[COUNT] result found for [SEARCH_TERM]",
+              alt_search: "No results found for [SEARCH_TERM]. Showing results for [DIFFERENT_TERM] instead",
+              search_suggestion: "Try searching for [SUGGESTED_TERM]",
+              searching: "Searching..."
+            }
+          });
+          console.log('Pagefind UI initialized successfully');
+        } catch (uiError) {
+          console.error('Error initializing Pagefind UI:', uiError);
+        }
       };
       
-      script.onerror = () => {
-        console.log('Pagefind not available yet, search will be available after build');
-        const searchContainer = document.getElementById('search-container');
-        if (searchContainer) {
-          searchContainer.style.display = 'none';
-        }
+      script.onerror = (error) => {
+        console.error('Failed to load Pagefind script:', error);
+        hideSearchContainer();
       };
       
       document.head.appendChild(script);
     } catch (error) {
-      console.log('Failed to load Pagefind:', error);
-      const searchContainer = document.getElementById('search-container');
-      if (searchContainer) {
-        searchContainer.style.display = 'none';
-      }
+      console.log('Pagefind not available:', error.message);
+      hideSearchContainer();
     }
   });
+  
+  function hideSearchContainer() {
+    const searchContainer = document.getElementById('search-container');
+    if (searchContainer) {
+      searchContainer.style.display = 'none';
+    }
+  }
 </script>
 
 <style>
