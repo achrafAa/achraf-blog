@@ -17,13 +17,13 @@
       "id": 2,
       "title": "CSVHelper",
       "description": "High-performance PHP CSV processing library with advanced parsing capabilities.",
-      "longDescription": "High-performance PHP library for handling large CSV files with memory efficiency. Includes data validation, transformation, and export capabilities.",
+      "longDescription": "A modern, high-performance CSV processing library for PHP that automatically selects the best available implementation. CsvHelper provides a unified interface for reading and writing CSV files, with automatic fallback between the FastCSV extension (when available) and PHP's built-in SplFileObject.",
       "image": "/images/projects/phpcsv.jpg",
       "tags": ["PHP", "Composer"],
       "fullTags": ["PHP", "CSV", "Performance", "Library"],
-      "github": "https://github.com/PHP-CSV/CSVHelper",
+      "github": "https://github.com/csvtoolkit/PHP-CSVHelper",
       "demo": null,
-      "featured": true,
+      "featured": false,
       "status": "beta"
     },
     {
@@ -36,7 +36,7 @@
       "fullTags": ["PHP", "Web Application", "PDF", "Clean Architecture"],
       "github": "https://github.com/achrafAa/cventure",
       "demo": null,
-      "featured": true,
+      "featured": false,
       "status": "ready"
     },
     {
@@ -64,6 +64,32 @@
       "demo": null,
       "featured": false,
       "status": "ready"
+    },
+    {
+      "id": 6,
+      "title": "FastCSV-C",
+      "description": "High-performance, safe, and portable CSV library in C for use in any language.",
+      "longDescription": "FastCSV-C is a fast, safe CSV library written in C, designed for easy integration with PHP, Python, and other languages. It features arena-based memory management, a simple API, and is ideal for building high-performance extensions.",
+      "image": "/images/blog/fastcsv-c.png",
+      "tags": ["C", "CSV", "FFI"],
+      "fullTags": ["C", "CSV", "FFI", "Performance", "Library"],
+      "github": "https://github.com/csvtoolkit/FastCSV-C",
+      "demo": null,
+      "featured": true,
+      "status": "beta"
+    },
+    {
+      "id": 7,
+      "title": "FastCSV-ext",
+      "description": "High-performance PHP extension for CSV processing powered by FastCSV-C.",
+      "longDescription": "FastCSV-ext is a PHP extension that brings the speed and safety of FastCSV-C to PHP. It provides a native interface for fast CSV reading and writing, with minimal overhead and seamless integration into PHP projects.",
+      "image": "/images/projects/phpcsv.jpg",
+      "tags": ["PHP", "C", "Extension"],
+      "fullTags": ["PHP", "C", "CSV", "Extension", "Performance"],
+      "github": "https://github.com/csvtoolkit/FastCSV-ext",
+      "demo": null,
+      "featured": true,
+      "status": "beta"
     }
   ]
 } 
