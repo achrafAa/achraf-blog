@@ -24,22 +24,22 @@ const allTags = [...new Set(publishedPosts.flatMap((post: CollectionEntry<'blog'
 
 
   <!-- Blog Posts Grid -->
-  <section class="py-20 bg-gray-50 dark:bg-gray-800/50">
+  <section class="py-20 bg-gray-50 dark:bg-gray-950/50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+        <h2 class="text-3xl font-display font-black text-black dark:text-white mb-4">
           📝 All Posts
         </h2>
-        <p class="text-lg text-gray-600 dark:text-gray-300">
+        <p class="text-lg text-gray-700 dark:text-gray-300">
           Latest articles on systems programming, PHP internals, and performance optimization
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8">
         {publishedPosts.map((post: CollectionEntry<'blog'>) => (
-          <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-700 overflow-hidden group">
+          <article class="bg-cream dark:bg-paper border-3 border-border-light dark:border-border-dark shadow-lg hover:shadow-xl transition-all duration-300 border border-border-light dark:border-border-dark hover:border-paper-dark dark:hover:border-clay overflow-hidden group">
             {/* Blog Post Image or Placeholder */}
-            <div class="aspect-video bg-gray-100 dark:bg-gray-700 overflow-hidden">
+            <div class="aspect-video bg-gray-50 dark:bg-gray-950 overflow-hidden">
               {post.data.heroImage ? (
                 <img 
                   src={post.data.heroImage} 
@@ -52,14 +52,14 @@ const allTags = [...new Set(publishedPosts.flatMap((post: CollectionEntry<'blog'
                     <svg class="w-12 h-12 mx-auto text-gray-400 dark:text-gray-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                     </svg>
-                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Article</div>
+                    <div class="text-sm font-medium text-gray-600 dark:text-gray-400">Article</div>
                   </div>
                 </div>
               )}
             </div>
             
             <div class="p-6">
-              <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-3">
+              <div class="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400 mb-3">
                 <time datetime={post.data.pubDate.toISOString()}>
                   {post.data.pubDate.toLocaleDateString('en-US', {
                     year: 'numeric',
@@ -67,30 +67,30 @@ const allTags = [...new Set(publishedPosts.flatMap((post: CollectionEntry<'blog'
                     day: 'numeric'
                   })}
                 </time>
-                <span class="text-blue-600 dark:text-blue-400 font-medium">
+                <span class="text-cyber dark:text-cyber-bright font-medium">
                   {Math.ceil(post.body.length / 1000)} min read
                 </span>
               </div>
               
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 class="text-xl font-display font-black text-black dark:text-white mb-3 line-clamp-2 group-hover:text-terracotta dark:group-hover:text-coral transition-colors">
                 <a href={`/blog/${post.slug}`}>
                   {post.data.title}
                 </a>
               </h3>
               
-              <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+              <p class="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
                 {post.data.description}
               </p>
               
               {post.data.tags && post.data.tags.length > 0 && (
                 <div class="flex flex-wrap gap-2 mb-4">
                   {post.data.tags.slice(0, 3).map((tag: string) => (
-                    <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs font-medium">
+                    <span class="px-2 py-1 bg-gray-50 dark:bg-gray-950 text-gray-700 dark:text-gray-300 rounded text-xs font-medium">
                       {tag}
                     </span>
                   ))}
                   {post.data.tags.length > 3 && (
-                    <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded text-xs">
+                    <span class="px-2 py-1 bg-gray-50 dark:bg-gray-950 text-gray-600 dark:text-gray-400 rounded text-xs">
                       +{post.data.tags.length - 3} more
                     </span>
                   )}
@@ -99,7 +99,7 @@ const allTags = [...new Set(publishedPosts.flatMap((post: CollectionEntry<'blog'
               
               <a 
                 href={`/blog/${post.slug}`}
-                class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium text-sm group-hover:underline"
+                class="inline-flex items-center text-cyber dark:text-cyber-bright hover:text-clay dark:hover:text-coral font-medium text-sm group-hover:underline"
               >
                 Read full article
                 <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,36 +118,36 @@ const allTags = [...new Set(publishedPosts.flatMap((post: CollectionEntry<'blog'
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">No posts published yet</h3>
-          <p class="text-gray-600 dark:text-gray-300">Check back soon for technical insights and tutorials!</p>
+          <h3 class="text-xl font-medium text-black dark:text-white mb-2">No posts published yet</h3>
+          <p class="text-gray-700 dark:text-gray-300">Check back soon for technical insights and tutorials!</p>
         </div>
       )}
     </div>
   </section>
 
   <!-- Newsletter/Subscribe CTA -->
-  <section class="py-20 bg-white dark:bg-gray-900">
+  <section class="py-20 bg-white dark:bg-black">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+      <h2 class="text-3xl font-display font-black text-black dark:text-white mb-4">
         Stay Updated
       </h2>
-      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+      <p class="text-xl text-gray-700 dark:text-gray-300 mb-8">
         Get notified when I publish new articles about systems programming, PHP internals, and performance optimization
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a 
-          href="/contact" 
-          class="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+        <a
+          href="/contact"
+          class="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium border-3 border-border-light dark:border-border-dark text-black dark:text-black bg-cyber hover:bg-cyber-dark dark:bg-cyber-bright dark:hover:bg-cyber transition-all duration-200"
         >
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
           </svg>
           Get In Touch
         </a>
-        
-        <a 
-          href="/" 
-          class="inline-flex items-center px-8 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-lg text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 shadow-md hover:shadow-lg"
+
+        <a
+          href="/"
+          class="inline-flex items-center px-8 py-3 border border-border-light dark:border-border-dark text-base font-medium border-3 border-border-light dark:border-border-dark text-black dark:text-white bg-white dark:bg-black hover:bg-cyber dark:hover:bg-cyber-bright hover:text-black dark:hover:text-black transition-all duration-200"
         >
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>

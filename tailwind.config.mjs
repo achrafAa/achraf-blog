@@ -4,6 +4,24 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        cyber: '#C4A57B',
+        'cyber-bright': '#D2B48C',
+        'cyber-dark': '#9B7653',
+        electric: '#C4A57B',
+        warning: '#FF3366',
+        'border-light': '#5A5048',
+        'border-dark': '#D9CFC4',
+      },
+      fontFamily: {
+        display: ['Work Sans', 'system-ui', 'sans-serif'],
+        body: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+      borderWidth: {
+        '3': '3px',
+        '5': '5px',
+      },
       typography: {
         DEFAULT: {
           css: {

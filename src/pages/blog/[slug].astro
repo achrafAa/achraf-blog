@@ -35,11 +35,11 @@ const relatedPosts = allPosts
 
 <Layout title={`${post.data.title} | Achraf AAMRI`}>
   <!-- Article Header -->
-  <article class="bg-white dark:bg-gray-900" data-pagefind-body>
+  <article class="bg-white dark:bg-black" data-pagefind-body>
     <!-- Hero Image -->
     {post.data.heroImage && (
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
-        <div class="aspect-video overflow-hidden rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+        <div class="aspect-video overflow-hidden border-3 border-border-light dark:border-border-dark shadow-lg border border-border-light dark:border-border-dark">
           <img 
             src={post.data.heroImage} 
             alt={post.data.title}
@@ -53,13 +53,13 @@ const relatedPosts = allPosts
     <!-- Article Content -->
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Article Meta -->
-      <header class="py-12 border-b border-gray-200 dark:border-gray-700">
+      <header class="py-12 border-b border-border-light dark:border-border-dark">
         <div class="text-center">
           <!-- Tags -->
           {post.data.tags && post.data.tags.length > 0 && (
             <div class="flex flex-wrap justify-center gap-2 mb-6">
               {post.data.tags.map((tag: string) => (
-                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium" data-pagefind-filter="tag">
+                <span class="px-3 py-1 bg-paper dark:bg-blue-900/20 text-cyber dark:text-cyber-bright rounded-full text-sm font-medium" data-pagefind-filter="tag">
                   {tag}
                 </span>
               ))}
@@ -67,17 +67,17 @@ const relatedPosts = allPosts
           )}
 
           <!-- Title -->
-          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight" data-pagefind-meta="title">
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-display font-black text-black dark:text-white mb-6 leading-tight" data-pagefind-meta="title">
             {post.data.title}
           </h1>
 
           <!-- Description -->
-          <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed" data-pagefind-meta="excerpt">
+          <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed" data-pagefind-meta="excerpt">
             {post.data.description}
           </p>
 
           <!-- Article Meta Info -->
-          <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+          <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-gray-600 dark:text-gray-400">
             <div class="flex items-center">
               <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
@@ -107,12 +107,12 @@ const relatedPosts = allPosts
       </div>
 
       <!-- Article Footer -->
-      <footer class="py-12 border-t border-gray-200 dark:border-gray-700">
+      <footer class="py-12 border-t border-border-light dark:border-border-dark">
         <!-- Share & Back Navigation -->
         <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
           <a 
             href="/blog"
-            class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
+            class="inline-flex items-center text-cyber dark:text-cyber-bright hover:text-clay dark:hover:text-coral font-medium"
           >
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
@@ -121,13 +121,13 @@ const relatedPosts = allPosts
           </a>
 
           <div class="flex items-center gap-4">
-            <span class="text-sm text-gray-500 dark:text-gray-400">Share this article:</span>
+            <span class="text-sm text-gray-600 dark:text-gray-400">Share this article:</span>
             <div class="flex gap-2">
               <a 
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(`https://achrafaamri.com/blog/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="p-2 text-gray-400 hover:text-blue-500 transition-colors"
+                class="p-2 text-gray-400 hover:text-terracotta transition-colors"
                 aria-label="Share on Twitter"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -139,7 +139,7 @@ const relatedPosts = allPosts
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://achrafaamri.com/blog/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="p-2 text-gray-400 hover:text-blue-600 transition-colors"
+                class="p-2 text-gray-400 hover:text-terracotta transition-colors"
                 aria-label="Share on LinkedIn"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -157,21 +157,21 @@ const relatedPosts = allPosts
 
   <!-- Related Posts -->
   {relatedPosts.length > 0 && (
-    <section class="py-20 bg-gray-50 dark:bg-gray-800/50">
+    <section class="py-20 bg-gray-50 dark:bg-gray-950/50">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 class="text-3xl font-display font-black text-black dark:text-white mb-4">
             Related Articles
           </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-300">
+          <p class="text-lg text-gray-700 dark:text-gray-300">
             More insights you might find interesting
           </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {relatedPosts.map((relatedPost: CollectionEntry<'blog'>) => (
-            <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-700 overflow-hidden group">
-              <div class="aspect-video bg-gray-100 dark:bg-gray-700 overflow-hidden">
+            <article class="bg-cream dark:bg-paper border-3 border-border-light dark:border-border-dark shadow-lg hover:shadow-xl transition-all duration-300 border border-border-light dark:border-border-dark hover:border-paper-dark dark:hover:border-clay overflow-hidden group">
+              <div class="aspect-video bg-gray-50 dark:bg-gray-950 overflow-hidden">
                 {relatedPost.data.heroImage ? (
                   <img 
                     src={relatedPost.data.heroImage} 
@@ -184,14 +184,14 @@ const relatedPosts = allPosts
                       <svg class="w-8 h-8 mx-auto text-gray-400 dark:text-gray-500 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                       </svg>
-                      <div class="text-xs font-medium text-gray-500 dark:text-gray-400">Article</div>
+                      <div class="text-xs font-medium text-gray-600 dark:text-gray-400">Article</div>
                     </div>
                   </div>
                 )}
               </div>
               
               <div class="p-6">
-                <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                <div class="text-sm text-gray-600 dark:text-gray-400 mb-2">
                   <time datetime={relatedPost.data.pubDate.toISOString()}>
                     {relatedPost.data.pubDate.toLocaleDateString('en-US', {
                       year: 'numeric',
@@ -201,19 +201,19 @@ const relatedPosts = allPosts
                   </time>
                 </div>
                 
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h3 class="text-lg font-body font-bold text-black dark:text-white mb-2 line-clamp-2 group-hover:text-terracotta dark:group-hover:text-coral transition-colors">
                   <a href={`/blog/${relatedPost.slug}`}>
                     {relatedPost.data.title}
                   </a>
                 </h3>
                 
-                <p class="text-gray-600 dark:text-gray-300 text-sm line-clamp-2 mb-3">
+                <p class="text-gray-700 dark:text-gray-300 text-sm line-clamp-2 mb-3">
                   {relatedPost.data.description}
                 </p>
                 
                 <a 
                   href={`/blog/${relatedPost.slug}`}
-                  class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium text-sm"
+                  class="inline-flex items-center text-cyber dark:text-cyber-bright hover:text-clay dark:hover:text-coral font-medium text-sm"
                 >
                   Read more
                   <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

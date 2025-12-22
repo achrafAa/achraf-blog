@@ -14,6 +14,9 @@ const { title, description = "Achraf's Tech Blog - Insights, tutorials, and thou
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<script is:inline>
@@ -24,74 +27,72 @@ const { title, description = "Achraf's Tech Blog - Insights, tutorials, and thou
 			})();
 		</script>
 	</head>
-	<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-300">
-		<nav class="border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
-			<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div class="flex items-center justify-between h-16">
+	<body class="bg-white dark:bg-black text-black dark:text-white min-h-screen font-body antialiased">
+		<nav class="border-b-3 border-border-light dark:border-border-dark bg-white dark:bg-black sticky top-0 z-50">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex items-center justify-between h-20">
 					<div class="flex items-center">
-						<a href="/" class="text-xl font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-							Achraf Aamri
+						<a href="/" class="text-2xl font-display font-black text-black dark:text-white hover:text-cyber dark:hover:text-cyber-bright transition-colors tracking-tight">
+							ACHRAF AAMRI
 						</a>
 					</div>
-					
-					<div class="hidden md:block">
-						<div class="flex items-center space-x-8">
-							<a href="/" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-								Home
-							</a>
-							<a href="/blog" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-								Blog
-							</a>
-							<a href="/projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-								Projects
-							</a>
-							<a href="/contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-								Contact
-							</a>
-						</div>
+
+					<div class="hidden md:flex items-center space-x-1">
+						<a href="/" class="px-4 py-2 font-body font-semibold text-black dark:text-white hover:bg-cyber hover:text-black dark:hover:bg-cyber-bright dark:hover:text-black transition-all uppercase text-sm tracking-wider">
+							Home
+						</a>
+						<a href="/blog" class="px-4 py-2 font-body font-semibold text-black dark:text-white hover:bg-cyber hover:text-black dark:hover:bg-cyber-bright dark:hover:text-black transition-all uppercase text-sm tracking-wider">
+							Blog
+						</a>
+						<a href="/projects" class="px-4 py-2 font-body font-semibold text-black dark:text-white hover:bg-cyber hover:text-black dark:hover:bg-cyber-bright dark:hover:text-black transition-all uppercase text-sm tracking-wider">
+							Projects
+						</a>
+						<a href="/contact" class="px-4 py-2 font-body font-semibold text-black dark:text-white hover:bg-cyber hover:text-black dark:hover:bg-cyber-bright dark:hover:text-black transition-all uppercase text-sm tracking-wider">
+							Contact
+						</a>
 					</div>
 
-					<div class="flex items-center space-x-4">
+					<div class="flex items-center space-x-2">
 						<!-- Dark mode toggle -->
-						<button 
-							id="theme-toggle" 
-							class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+						<button
+							id="theme-toggle"
+							class="p-3 border-2 border-border-light dark:border-border-dark hover:bg-cyber dark:hover:bg-cyber-bright hover:border-cyber dark:hover:border-cyber-bright transition-all"
 							aria-label="Toggle dark mode"
 						>
-							<svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+							<svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
 							</svg>
-							<svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+							<svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
 							</svg>
 						</button>
 
 						<!-- Mobile menu button -->
-						<button 
-							id="mobile-menu-button" 
-							class="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+						<button
+							id="mobile-menu-button"
+							class="md:hidden p-3 border-2 border-border-light dark:border-border-dark hover:bg-cyber dark:hover:bg-cyber-bright transition-all"
 							aria-label="Toggle mobile menu"
 						>
-							<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+							<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+								<path stroke-linecap="square" stroke-linejoin="miter" d="M4 6h16M4 12h16M4 18h16"></path>
 							</svg>
 						</button>
 					</div>
 				</div>
 
 				<!-- Mobile menu -->
-				<div id="mobile-menu" class="hidden md:hidden pb-4">
-					<div class="space-y-1">
-						<a href="/" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-base font-medium transition-colors">
+				<div id="mobile-menu" class="hidden md:hidden border-t-2 border-border-light dark:border-border-dark py-4">
+					<div class="space-y-2">
+						<a href="/" class="block px-4 py-3 font-body font-semibold text-black dark:text-white hover:bg-cyber hover:text-black dark:hover:bg-cyber-bright dark:hover:text-black transition-all uppercase text-sm tracking-wider border-2 border-transparent hover:border-border-light dark:hover:border-border-dark">
 							Home
 						</a>
-						<a href="/blog" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-base font-medium transition-colors">
+						<a href="/blog" class="block px-4 py-3 font-body font-semibold text-black dark:text-white hover:bg-cyber hover:text-black dark:hover:bg-cyber-bright dark:hover:text-black transition-all uppercase text-sm tracking-wider border-2 border-transparent hover:border-border-light dark:hover:border-border-dark">
 							Blog
 						</a>
-						<a href="/projects" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-base font-medium transition-colors">
+						<a href="/projects" class="block px-4 py-3 font-body font-semibold text-black dark:text-white hover:bg-cyber hover:text-black dark:hover:bg-cyber-bright dark:hover:text-black transition-all uppercase text-sm tracking-wider border-2 border-transparent hover:border-border-light dark:hover:border-border-dark">
 							Projects
 						</a>
-						<a href="/contact" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-base font-medium transition-colors">
+						<a href="/contact" class="block px-4 py-3 font-body font-semibold text-black dark:text-white hover:bg-cyber hover:text-black dark:hover:bg-cyber-bright dark:hover:text-black transition-all uppercase text-sm tracking-wider border-2 border-transparent hover:border-border-light dark:hover:border-border-dark">
 							Contact
 						</a>
 					</div>
@@ -103,10 +104,12 @@ const { title, description = "Achraf's Tech Blog - Insights, tutorials, and thou
 			<slot />
 		</main>
 
-		<footer class="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-20">
-			<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-				<div class="text-center text-gray-600 dark:text-gray-400">
-					<p>&copy; 2024 Achraf's Tech Blog. Built with Astro & Tailwind CSS.</p>
+		<footer class="bg-black dark:bg-white text-white dark:text-black border-t-5 border-cyber dark:border-cyber-bright mt-20">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+				<div class="text-center">
+					<p class="font-mono font-bold text-sm tracking-wider uppercase">
+						&copy; 2024 Achraf Aamri • Systems Programmer • Built with Astro
+					</p>
 				</div>
 			</div>
 		</footer>
@@ -143,11 +146,122 @@ const { title, description = "Achraf's Tech Blog - Insights, tutorials, and thou
 	</body>
 </html>
 
-<style>
+<style is:global>
+	:root {
+		/* Neo-Brutalist Design System */
+		--color-cyber: #C4A57B;
+		--color-cyber-bright: #D2B48C;
+		--color-cyber-dark: #9B7653;
+		--color-border-light: #5A5048;
+		--color-border-dark: #D9CFC4;
+		--font-display: 'Work Sans', system-ui, sans-serif;
+		--font-body: 'IBM Plex Sans', system-ui, sans-serif;
+		--font-mono: 'JetBrains Mono', monospace;
+	}
+
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+	}
+
+	/* Selection styling */
+	::selection {
+		background-color: var(--color-cyber);
+		color: #000000;
+	}
+
+	.dark ::selection {
+		background-color: var(--color-cyber-bright);
+		color: #000000;
+	}
+
+	/* Focus outline */
+	*:focus-visible {
+		outline: 3px solid var(--color-cyber);
+		outline-offset: 2px;
+	}
+
+	/* Prose customization for blog posts */
+	.prose {
+		--tw-prose-body: #000000;
+		--tw-prose-headings: #000000;
+		--tw-prose-links: var(--color-cyber-dark);
+		--tw-prose-bold: #000000;
+		--tw-prose-counters: var(--color-cyber);
+		--tw-prose-bullets: var(--color-cyber);
+		--tw-prose-quotes: #333333;
+		--tw-prose-code: #000000;
+		--tw-prose-pre-bg: #F5F5F5;
+		--tw-prose-th-borders: #5A5048;
+		--tw-prose-td-borders: #CCCCCC;
+	}
+
+	.dark .prose {
+		--tw-prose-body: #FFFFFF;
+		--tw-prose-headings: #FFFFFF;
+		--tw-prose-links: var(--color-cyber-bright);
+		--tw-prose-bold: #FFFFFF;
+		--tw-prose-counters: var(--color-cyber-bright);
+		--tw-prose-bullets: var(--color-cyber-bright);
+		--tw-prose-quotes: #CCCCCC;
+		--tw-prose-code: #FFFFFF;
+		--tw-prose-pre-bg: #1A1A1A;
+		--tw-prose-th-borders: #D9CFC4;
+		--tw-prose-td-borders: #333333;
+	}
+
+	.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+		font-family: var(--font-display);
+		font-weight: 800;
+		letter-spacing: -0.02em;
+	}
+
+	.prose code {
+		font-family: var(--font-mono);
+		font-weight: 700;
+	}
+
+	.prose pre {
+		border: 3px solid #5A5048;
+	}
+
+	.dark .prose pre {
+		border-color: #D9CFC4;
+	}
+
+	/* Scrollbar styling */
+	::-webkit-scrollbar {
+		width: 12px;
+		height: 12px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #FFFFFF;
+		border-left: 2px solid #5A5048;
+	}
+
+	.dark ::-webkit-scrollbar-track {
+		background: #000000;
+		border-left: 2px solid #D9CFC4;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: var(--color-cyber);
+		border: 2px solid #5A5048;
+	}
+
+	.dark ::-webkit-scrollbar-thumb {
+		background: var(--color-cyber-bright);
+		border: 2px solid #D9CFC4;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: var(--color-cyber-dark);
+	}
+
+	.dark ::-webkit-scrollbar-thumb:hover {
+		background: var(--color-cyber);
 	}
 </style>
