@@ -8,17 +8,22 @@ export interface Props {
 const { title, href, class: className = '' } = Astro.props;
 ---
 
-<div class={`p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-700 ${className}`}>
+<div class={`group p-6 bg-white dark:bg-black border-3 border-border-light dark:border-border-dark hover:border-cyber dark:hover:border-cyber-bright transition-all duration-200 hover:translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#C4A57B] dark:hover:shadow-[8px_8px_0px_0px_#D2B48C] ${className}`}>
   {title && (
-    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+    <h3 class="text-2xl font-display font-black text-black dark:text-white mb-4 tracking-tight">
       {href ? (
-        <a href={href} class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+        <a href={href} class="hover:text-cyber dark:hover:text-cyber-bright transition-colors inline-flex items-center gap-2">
           {title}
+          <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+            <path stroke-linecap="square" stroke-linejoin="miter" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
         </a>
       ) : (
         title
       )}
     </h3>
   )}
-  <slot />
-</div> 
+  <div class="text-black dark:text-white">
+    <slot />
+  </div>
+</div>
